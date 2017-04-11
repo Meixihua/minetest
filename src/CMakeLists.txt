@@ -23,6 +23,7 @@ set(CMAKE_BUILD_TYPE "${CMAKE_BUILD_TYPE}" CACHE STRING
 	FORCE
 )
 
+set(THIRDPARTY_PATH "${CMAKE_SOURCE_DIR}/../thirdparty")
 
 # Set some random things default to not being visible in the GUI
 mark_as_advanced(EXECUTABLE_OUTPUT_PATH LIBRARY_OUTPUT_PATH)
@@ -271,14 +272,14 @@ if(WIN32)
 	set(PLATFORM_LIBS ws2_32.lib shlwapi.lib ${PLATFORM_LIBS})
 
 	# Zlib stuff
-	set(ZLIB_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/../../zlib/zlib-1.2.5"
+	set(ZLIB_INCLUDE_DIR "${THIRDPARTY_PATH}/zlib123"
 			CACHE PATH "Zlib include directory")
-	set(ZLIB_LIBRARIES "${PROJECT_SOURCE_DIR}/../../zlib125dll/dll32/zlibwapi.lib"
+	set(ZLIB_LIBRARIES "${THIRDPARTY_PATH}/zlib123dll/dll32/zlibwapi.lib"
 			CACHE FILEPATH "Path to zlib library (usually zlibwapi.lib)")
-	set(ZLIB_DLL "${PROJECT_SOURCE_DIR}/../../zlib125dll/dll32/zlibwapi.dll"
+	set(ZLIB_DLL "${THIRDPARTY_PATH}/zlib123dll/dll32/zlibwapi.dll"
 			CACHE FILEPATH "Path to zlib DLL (for installation)")
 	set(ZLIBWAPI_DLL "" CACHE FILEPATH "Path to zlibwapi DLL")
-	set(IRRLICHT_SOURCE_DIR "${PROJECT_SOURCE_DIR}/../../irrlicht-1.7.2"
+	set(IRRLICHT_SOURCE_DIR "${THIRDPARTY_PATH}/irrlicht-1.7.3"
 			CACHE PATH "irrlicht dir")
 	if(USE_FREETYPE)
 		set(FREETYPE_INCLUDE_DIR_ft2build "${PROJECT_SOURCE_DIR}/../../freetype2/include/"
@@ -290,7 +291,7 @@ if(WIN32)
 	endif()
 	if(ENABLE_SOUND)
 		set(OPENAL_DLL "" CACHE FILEPATH "Path to OpenAL32.dll for installation (optional)")
-		set(OGG_DLL "" CACHE FILEPATH "Path to libogg.dll for installation (optional)")
+		set(OGG_DLL "${THIRDPARTY_PATH}/libogg-1.3.2/win32/VS2010/Win32/Release/libogg.dll" CACHE FILEPATH "Path to libogg.dll for installation (optional)")
 		set(VORBIS_DLL "" CACHE FILEPATH "Path to libvorbis.dll for installation (optional)")
 		set(VORBISFILE_DLL "" CACHE FILEPATH "Path to libvorbisfile.dll for installation (optional)")
 	endif()

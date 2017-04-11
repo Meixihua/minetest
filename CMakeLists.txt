@@ -28,6 +28,14 @@ endif()
 
 message(STATUS "*** Will build version ${VERSION_STRING} ***")
 
+#add for debug by meixihua 
+
+if(UNIX)
+  set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g")
+  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
+  set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -g")
+  set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -g")
+endif()
 
 # Configuration options
 set(DEFAULT_RUN_IN_PLACE FALSE)

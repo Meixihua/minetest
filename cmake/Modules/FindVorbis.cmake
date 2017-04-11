@@ -5,6 +5,13 @@
 #  OGG_INCLUDE_DIR    - where to find ogg/ogg.h, etc.
 #  VORBIS_LIBRARIES   - List of libraries when using vorbis(file).
 #  VORBIS_FOUND       - True if vorbis found.
+set(OGG_ROOT_DIR "${THIRDPARTY}/libogg-1.3.2")
+set(VORBIS_ROOT_DIR "${THIRDPARTY}/libvorbis-1.3.5")
+
+set(VORBIS_INCLUDE_DIR "${VORBIS_ROOT_DIR}/include")
+set(OGG_INCLUDE_DIR "${OGG_ROOT_DIR}/include")
+
+
 
 if(NOT GP2XWIZ)
     if(VORBIS_INCLUDE_DIR)
@@ -14,8 +21,10 @@ if(NOT GP2XWIZ)
     find_path(OGG_INCLUDE_DIR ogg/ogg.h)
     find_path(VORBIS_INCLUDE_DIR vorbis/vorbisfile.h)
     # MSVC built ogg/vorbis may be named ogg_static and vorbis_static
-    find_library(OGG_LIBRARY NAMES ogg ogg_static)
-    find_library(VORBIS_LIBRARY NAMES vorbis vorbis_static)
+    find_library(OGG_LIBRARY NAMES ogg ogg_static 
+          PATHS "${OGG_ROOT_DIR}/win32/VS2010/Win32/Release")
+    find_library(VORBIS_LIBRARY NAMES vorbis vorbis_static 
+          PATHS "${VORBIS_ROOT_DIR}/win32/VS2010/Win32/Release")
     find_library(VORBISFILE_LIBRARY NAMES vorbisfile vorbisfile_static)
     # Handle the QUIETLY and REQUIRED arguments and set VORBIS_FOUND
     # to TRUE if all listed variables are TRUE.

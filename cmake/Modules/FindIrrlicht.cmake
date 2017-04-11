@@ -1,6 +1,6 @@
 
 mark_as_advanced(IRRLICHT_LIBRARY IRRLICHT_INCLUDE_DIR IRRLICHT_DLL)
-set(IRRLICHT_SOURCE_DIR "" CACHE PATH "Path to irrlicht source directory (optional)")
+set(IRRLICHT_SOURCE_DIR "${THIRDPARTY_PATH}/irrlicht-1.7.3" CACHE PATH "Path to irrlicht source directory (optional)")
 
 
 # Find include directory
